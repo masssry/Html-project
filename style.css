@@ -1,0 +1,214 @@
+/* إعدادات الخطوط والخلفية الأساسية الفاقعة */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #3b52f6; /* اللون الأزرق المميز بالفيديو */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+    position: relative;
+}
+
+/* قسم الشخصية الـ 3D الحركية */
+.avatar-container {
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 10px;
+    z-index: 2;
+    animation: bounceIn 1s ease;
+}
+
+.avatar-container img {
+    height: 100%;
+    object-fit: contain;
+}
+
+/* تصميم الفريم الخاص بالفورم */
+.form-container {
+    background-color: transparent;
+    width: 100%;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+/* إعدادات حقول الإدخال */
+.input-group {
+    margin-bottom: 18px;
+    text-align: left;
+    direction: ltr; /* للحفاظ على مظهر الفورم الإنجليزي */
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.input-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-field .icon {
+    position: absolute;
+    left: 12px;
+    color: #888;
+    font-size: 1.1rem;
+}
+
+.input-field input, select {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border-radius: 8px;
+    border: 2px solid white;
+    background-color: white;
+    color: #333;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+select {
+    padding-left: 15px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px fill;
+    background-position-x: 95%;
+}
+
+/* الأيقونات الخاصة بالـ Validation (الصح والغلط) */
+.status-icon {
+    position: absolute;
+    right: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.valid-input input {
+    border: 2px solid #22c55e !important;
+}
+.valid-input .status-icon::before {
+    content: "✓";
+    color: #22c55e;
+}
+
+.invalid-input input {
+    border: 2px solid #ef4444 !important;
+}
+.invalid-input .status-icon::before {
+    content: "⚠️";
+    color: #ef4444;
+}
+
+.error-msg {
+    color: #ffcbd1;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: none;
+    text-align: right;
+    direction: rtl;
+}
+
+/* أزرار التحكم وحركاتها الانسيابية */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.btn-next, .btn-submit {
+    background-color: #22c55e; /* الأخضر الفاقع للفيديو */
+    color: white;
+}
+
+.btn-next:hover, .btn-submit:hover {
+    background-color: #16a34a;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-back {
+    width: 60px;
+    background-color: #10b981;
+    color: white;
+}
+
+/* إدارة ظهور واختفاء الخطوات بالأنيميشن */
+.form-step {
+    display: none;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.4s ease;
+}
+
+.form-step.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.success-screen p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 15px;
+    opacity: 0.9;
+}
+
+.footer-tag {
+    margin-top: 30px;
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
+
+/* أنيميشن الدخول */
+@keyframes bounceIn {
+    0% { opacity: 0; transform: translateY(30px); }
+    60% { opacity: 1; transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
